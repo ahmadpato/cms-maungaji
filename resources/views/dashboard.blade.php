@@ -28,7 +28,7 @@
   }  
 
   .card-counter.success{
-    background-color: #41acef;
+    background-color: #e86548;
     color: #FFF;
   }  
 
@@ -87,7 +87,20 @@
                   <div class="card-header">
                     <div class="container">
                       <div class="row">
-                
+                        
+                         <div class="col-md-12">
+                          <div class="card-counter success">
+                            <i class="fa fa-database"></i>
+                            @foreach ($countall as $data)
+                            <?php
+                            $sessionall = $data;
+                            ?>
+                            @endforeach
+                            <span class="count-numbers text-center">{{ $sessionall }}</span>
+                            <span class="count-name">Total All Session</span>
+                          </div>
+                        </div>
+                        
                         <div class="col-md-3">
                           <div class="card-counter">
                             <i class="fa fa-database"></i>
@@ -126,19 +139,19 @@
                             <span class="count-name"> Session 2022</span>
                           </div>
                         </div>    
-                        
+
                         <div class="col-md-3">
-                          <div class="card-counter success">
+                          <div class="card-counter danger">
                             <i class="fa fa-database"></i>
-                            @foreach ($countall as $data)
+                            @foreach ($count2023 as $data)
                             <?php
-                            $sessionall = $data;
+                            $session2023 = $data;
                             ?>
                             @endforeach
-                            <span class="count-numbers text-center">{{ $sessionall }}</span>
-                            <span class="count-name">Total All Session</span>
+                            <span class="count-numbers text-center">{{ $session2023 }}</span>
+                            <span class="count-name"> Session 2023</span>
                           </div>
-                        </div>
+                        </div>    
                         
                       </div>
                     </div>
@@ -186,6 +199,8 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script type="text/javascript">
+
+    var dashboardyear2023 = JSON.parse(`<?php echo $dashboardyear2023 ?>`);
 
     var dashboardyear2022 = JSON.parse(`<?php echo $dashboardyear2022 ?>`);
 
@@ -238,6 +253,10 @@
         {
           name: '2022',
           data: [dashboardyear2022]
+        },
+        {
+          name: '2023',
+          data: [dashboardyear2023]
         }]
     });
 

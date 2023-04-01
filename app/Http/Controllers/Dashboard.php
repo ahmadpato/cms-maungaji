@@ -21,6 +21,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Dashboard extends Controller
 {
     public function index(){
+
         $dashboard2022 = DB::table('mau_monthly_report')
         ->select('count')
         ->where('year', '2022')
@@ -38,6 +39,11 @@ class Dashboard extends Controller
         ->where('year', '2020')
         ->orderBy('year', 'DESC')
         ->get();
+
+        $dashboardyear2023 = DB::table('mau_monthly_report')
+        ->where('year', '2023')
+        ->orderBy('year', 'DESC')
+        ->sum('count');
 
         $dashboardyear2022 = DB::table('mau_monthly_report')
         ->where('year', '2022')
@@ -59,6 +65,13 @@ class Dashboard extends Controller
         ->get()->toArray();
 
         $countall = array_column($countall, 'count');
+
+        $count2023 = DB::table('mau_monthly_report')
+        ->select(DB::raw('SUM(count) AS count'))
+        ->where('year', '2023')
+        ->get()->toArray();
+
+        $count2023 = array_column($count2023, 'count');
 
         $count2022 = DB::table('mau_monthly_report')
         ->select(DB::raw('SUM(count) AS count'))
@@ -82,6 +95,7 @@ class Dashboard extends Controller
         $count2020 = array_column($count2020, 'count');
         
         return view('dashboard',[
+            'dashboardyear2023' => $dashboardyear2023,
             'dashboardyear2022' => $dashboardyear2022,
             'dashboardyear2021' => $dashboardyear2021,
             'dashboardyear2020' => $dashboardyear2020,
@@ -89,6 +103,7 @@ class Dashboard extends Controller
             'dashboard2021' => $dashboard2021,
             'dashboard2020' => $dashboard2020,
             'countall'  => $countall,
+            'count2023' => $count2023,
             'count2022' => $count2022,
             'count2021' => $count2021,
             'count2020' => $count2020
