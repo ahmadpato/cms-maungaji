@@ -17,13 +17,13 @@
     transition: .3s linear all;
   }
 
-  .card-counter.primary{
-    background-color: #007bff;
+  .card-counter.dashboard2022{
+    background-color: #90ed7d;
     color: #FFF;
   }
 
-  .card-counter.danger{
-    background-color: #ef5350;
+  .card-counter.dashboard2023{
+    background-color: #f7a35c;
     color: #FFF;
   }  
 
@@ -31,11 +31,20 @@
     background-color: #e86548;
     color: #FFF;
   }  
-
-  .card-counter.info{
-    background-color: #26c6da;
+  .card-counter.dashboard2021{
+    background-color: #434348;
     color: #FFF;
   }  
+  .card-counter.dashboard2020{
+    background-color: #7cb5ec;
+    color: #FFF;
+  }  
+
+  .card-counter.allsession{
+    background-color: #e77a62;
+    color: #FFF;
+  }  
+
 
   .card-counter i{
     font-size: 5em;
@@ -87,9 +96,22 @@
                   <div class="card-header">
                     <div class="container">
                       <div class="row">
-                
+                        
+                         <div class="col-md-12">
+                          <div class="card-counter allsession">
+                            <i class="fa fa-database"></i>
+                            @foreach ($countall as $data)
+                            <?php
+                            $sessionall = $data;
+                            ?>
+                            @endforeach
+                            <span class="count-numbers text-center">{{ $sessionall }}</span>
+                            <span class="count-name">Total All Session</span>
+                          </div>
+                        </div>
+                        
                         <div class="col-md-3">
-                          <div class="card-counter">
+                          <div class="card-counter dashboard2020">
                             <i class="fa fa-database"></i>
                             @foreach ($count2020 as $data)
                             <?php
@@ -102,7 +124,7 @@
                         </div>
 
                         <div class="col-md-3">
-                          <div class="card-counter info">
+                          <div class="card-counter dashboard2021">
                             <i class="fa fa-database"></i>
                             @foreach ($count2021 as $data)
                             <?php
@@ -115,7 +137,7 @@
                         </div>
 
                         <div class="col-md-3">
-                          <div class="card-counter primary">
+                          <div class="card-counter dashboard2022">
                             <i class="fa fa-database"></i>
                             @foreach ($count2022 as $data)
                             <?php
@@ -126,19 +148,19 @@
                             <span class="count-name"> Session 2022</span>
                           </div>
                         </div>    
-                        
+
                         <div class="col-md-3">
-                          <div class="card-counter success">
+                          <div class="card-counter dashboard2023">
                             <i class="fa fa-database"></i>
-                            @foreach ($countall as $data)
+                            @foreach ($count2023 as $data)
                             <?php
-                            $sessionall = $data;
+                            $session2023 = $data;
                             ?>
                             @endforeach
-                            <span class="count-numbers text-center">{{ $sessionall }}</span>
-                            <span class="count-name">Total All Session</span>
+                            <span class="count-numbers text-center">{{ $session2023 }}</span>
+                            <span class="count-name"> Session 2023</span>
                           </div>
-                        </div>
+                        </div>    
                         
                       </div>
                     </div>
@@ -186,6 +208,8 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script type="text/javascript">
+
+    var dashboardyear2023 = JSON.parse(`<?php echo $dashboardyear2023 ?>`);
 
     var dashboardyear2022 = JSON.parse(`<?php echo $dashboardyear2022 ?>`);
 
@@ -238,6 +262,10 @@
         {
           name: '2022',
           data: [dashboardyear2022]
+        },
+        {
+          name: '2023',
+          data: [dashboardyear2023]
         }]
     });
 
