@@ -17,13 +17,13 @@
     transition: .3s linear all;
   }
 
-  .card-counter.primary{
-    background-color: #007bff;
+  .card-counter.dashboard2022{
+    background-color: #90ed7d;
     color: #FFF;
   }
 
-  .card-counter.danger{
-    background-color: #ef5350;
+  .card-counter.dashboard2023{
+    background-color: #f7a35c;
     color: #FFF;
   }  
 
@@ -31,11 +31,20 @@
     background-color: #e86548;
     color: #FFF;
   }  
-
-  .card-counter.info{
-    background-color: #26c6da;
+  .card-counter.dashboard2021{
+    background-color: #434348;
     color: #FFF;
   }  
+  .card-counter.dashboard2020{
+    background-color: #7cb5ec;
+    color: #FFF;
+  }  
+
+  .card-counter.allsession{
+    background-color: #41acef;
+    color: #FFF;
+  }  
+
 
   .card-counter i{
     font-size: 5em;
@@ -89,7 +98,7 @@
                       <div class="row">
                         
                          <div class="col-md-12">
-                          <div class="card-counter success">
+                          <div class="card-counter allsession">
                             <i class="fa fa-database"></i>
                             @foreach ($countall as $data)
                             <?php
@@ -102,7 +111,7 @@
                         </div>
                         
                         <div class="col-md-3">
-                          <div class="card-counter">
+                          <div class="card-counter dashboard2020">
                             <i class="fa fa-database"></i>
                             @foreach ($count2020 as $data)
                             <?php
@@ -115,7 +124,7 @@
                         </div>
 
                         <div class="col-md-3">
-                          <div class="card-counter info">
+                          <div class="card-counter dashboard2021">
                             <i class="fa fa-database"></i>
                             @foreach ($count2021 as $data)
                             <?php
@@ -128,7 +137,7 @@
                         </div>
 
                         <div class="col-md-3">
-                          <div class="card-counter primary">
+                          <div class="card-counter dashboard2022">
                             <i class="fa fa-database"></i>
                             @foreach ($count2022 as $data)
                             <?php
@@ -141,7 +150,7 @@
                         </div>    
 
                         <div class="col-md-3">
-                          <div class="card-counter danger">
+                          <div class="card-counter dashboard2023">
                             <i class="fa fa-database"></i>
                             @foreach ($count2023 as $data)
                             <?php
