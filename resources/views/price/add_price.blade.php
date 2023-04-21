@@ -61,6 +61,38 @@
                       </select>
                     </div>
                     <div class="form-group">
+                      <label for="service_type">Service Type</label>
+                      <select class="form-control" id="class_type" name="service_type" required="required">
+                          <option value="online">Online</option>
+                          <option value="home_visit">Home Visit</option>
+                          <option value="learning_center">Learning Center</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="image">Icon Service Online</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="form-control" id="image" name="image">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="image_home_visit">Icon Service Home Visits</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="form-control" id="image_home_visit" name="image_home_visit">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="image_learning_center">Icon Service Learning Center</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="form-control" id="image_learning_center" name="image_learning_center">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
                         <label for="">Max Student</label>
                         <input type="number" class="form-control" name="max_student" required="required">
                     </div>
@@ -68,10 +100,6 @@
                         <label for="">Learning Duration (minutes)</label>
                         <input type="number" class="form-control" name="learning_duration" required="required">
                     </div>
-                    <div class="form-group">
-                      <label for="">Url Woocommerce</label>
-                      <input type="text" class="form-control" name="url_woocommerce" required="required">
-                      </div>
                     <div class="form-group">
                       <label for="">Description</label>
                       <textarea id="description" class="form-control" name="description" rows="10" cols="50" required></textarea>

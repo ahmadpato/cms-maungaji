@@ -49,10 +49,6 @@
                     <input type="number" class="form-control" name="price" value="{{ $list->price }}" required="required">
                     </div>
                     <div class="form-group">
-                      <label for="">Url Woocommerce</label>
-                      <input type="text" class="form-control" name="url_woocommerce" value="{{ $list->url_woocommerce }}" required="required">
-                      </div>
-                    <div class="form-group">
                         <label for="class_type">Class Type</label>
                         <select class="form-control" id="class_type" name="class_type" required="required">
                             <option value="offline" {{ $list->class_type == "offline" ? 'selected' : ''}}>Offline</option>
@@ -65,7 +61,54 @@
                           <option value="meeting" {{ $list->session_type == "meeting" ? 'selected' : ''}}>Meeting</option>
                           <option value="monthly" {{ $list->session_type == "monthly" ? 'selected' : ''}}>Monthly</option>
                       </select>
-                  </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="service_type">Service Type</label>
+                      <select class="form-control" id="session_type" name="service_type" required="required">
+                          <option value="online" {{ $list->service_type == "online" ? 'selected' : ''}}>Online</option>
+                          <option value="home_visit" {{ $list->service_type == "home_visit" ? 'selected' : ''}}>Home Visit</option>
+                          <option value="learning_center" {{ $list->service_type == "learning_center" ? 'selected' : ''}}>Learning Center</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="image">Icon Service Online</label>
+                      <div class="input-group">
+                        <div class="col-md-12">
+                          <img src="/images/{{ $list->photo }}" id="image" name="image" height="100" width="100">
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" name="image"/> 
+                          <input type="hidden" name="image" value="{{ $list->photo }}" /> 
+                          <label class="custom-file-label" for="image">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="image_home_visit">Icon Service Home Visit</label>
+                      <div class="input-group">
+                        <div class="col-md-12">
+                          <img src="/images/{{ $list->photo_home_visit }}" id="image_home_visit" name="image_home_visit" height="100" width="100">
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" name="image_home_visit"/> 
+                          <input type="hidden" name="image_home_visit" value="{{ $list->photo_home_visit }}" /> 
+                          <label class="custom-file-label" for="image_home_visit">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="image_learning_center">Icon Service Learning Center</label>
+                      <div class="input-group">
+                        <div class="col-md-12">
+                          <img src="/images/{{ $list->photo_learning_center }}" id="image_learning_center" name="image_learning_center" height="100" width="100">
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" name="image_learning_center"/> 
+                          <input type="hidden" name="image_learning_center" value="{{ $list->photo_learning_center }}" /> 
+                          <label class="custom-file-label" for="image_learning_center">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
                     <div class="form-group">
                         <label for="">Max Student</label>
                         <input type="number" class="form-control" name="max_student" value="{{ $list->max_student }}" required="required">

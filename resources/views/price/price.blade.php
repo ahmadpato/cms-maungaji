@@ -39,9 +39,12 @@
                       <th>No</th>
                       <th>Package Name</th>
                       <th>Price (Rp)</th>
-                      <th>Url Woocommerce</th>
                       <th>Class Type</th>
                       <th>Session Type</th>
+                      <th>Service Type</th>
+                      <th>Icon Service Online</th>
+                      <th>Icon Service Home Visit</th>
+                      <th>Icon Service Learning Center</th>
                       <th>Max Student</th>
                       <th>Learning Duration</th>
                       <th>Desctiption</th>
@@ -61,11 +64,33 @@
                       <td>{{ $list->package_name }}</td>
                       <?php
                       $num = $list->price ; 
+                      if($list->service_type == 'home_visit'){
+                        $service_type = 'home visit';
+                      } elseif ($list->service_type == 'learning_center') {
+                        $service_type = 'learning center';
+                      } else {
+                        $service_type = 'online';
+                      }
                       ?>
                       <td>Rp <?php echo number_format($num, 0, ",", ".") ; ?></td>
-                      <td>{{ $list->url_woocommerce }}</td>
                       <td>{{ $list->class_type }}</td>
                       <td>{{ $list->session_type }}</td>
+                      <td>{{ $service_type }}</td>
+                      <?php if($list->photo == '') : ?>
+                        <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
+                      <?php else : ?>
+                        <td><img src="/images/{{ $list->photo }}" width="100%" height="auto"></td>
+                      <?php endif; ?>
+                      <?php if($list->photo_home_visit == '') : ?>
+                        <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
+                      <?php else : ?>
+                        <td><img src="/images/{{ $list->photo_home_visit }}" width="100%" height="auto"></td>
+                      <?php endif; ?>
+                      <?php if($list->photo_learning_center == '') : ?>
+                        <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
+                      <?php else : ?>
+                        <td><img src="/images/{{ $list->photo_learning_center }}" width="100%" height="auto"></td>
+                      <?php endif; ?>
                       <td>{{ $list->max_student }}</td>
                       <td>{{ $list->learning_duration }}</td>
                       <?php if($list->description == '') : ?>
