@@ -22,6 +22,12 @@ class Dashboard extends Controller
 {
     public function index(){
 
+        $dashboard2023 = DB::table('mau_monthly_report')
+        ->select('count')
+        ->where('year', '2023')
+        ->orderBy('year', 'DESC')
+        ->get();
+
         $dashboard2022 = DB::table('mau_monthly_report')
         ->select('count')
         ->where('year', '2022')
@@ -99,6 +105,7 @@ class Dashboard extends Controller
             'dashboardyear2022' => $dashboardyear2022,
             'dashboardyear2021' => $dashboardyear2021,
             'dashboardyear2020' => $dashboardyear2020,
+            'dashboard2023' => $dashboard2023,
             'dashboard2022' => $dashboard2022,
             'dashboard2021' => $dashboard2021,
             'dashboard2020' => $dashboard2020,

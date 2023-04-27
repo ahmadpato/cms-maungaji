@@ -269,6 +269,8 @@
         }]
     });
 
+    var dashboard2023 = JSON.parse(`<?php echo $dashboard2023 ?>`);
+
     var dashboard2022 = JSON.parse(`<?php echo $dashboard2022 ?>`);
     
     var dashboard2021 = JSON.parse(`<?php echo $dashboard2021 ?>`);
@@ -357,7 +359,17 @@
               dashboard2022[3].count, 
               dashboard2022[4].count, 
               dashboard2022[5].count,
-              dashboard2022[6].count]
+              dashboard2022[6].count,
+              dashboard2022[7].count,
+              dashboard2022[8].count,
+              dashboard2022[9].count,
+              dashboard2022[10].count,
+              dashboard2022[11].count]
+            },{
+              name: '2023',
+              data: [dashboard2023[0].count, 
+              dashboard2023[1].count, 
+              dashboard2023[2].count]
             }]
     });
 
