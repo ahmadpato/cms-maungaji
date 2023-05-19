@@ -34,31 +34,31 @@
                   </div>
                 @endif
                 <div class="card-body">
-                @foreach($partner as $list)
+                {{-- @foreach($partner as $partner) --}}
                   <form action="/partner/update" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
-                  <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
+                  <input type="hidden" name="id" value="{{ $partner['id'] }}"> <br/>
                   <div class="form-group">
                     <label for="image">Image</label>
                     <div class="input-group">
                       <div class="col-md-12">
-                        <img src="/images/{{ $list->photo }}" id="image" name="image" height="100" width="100">
+                        <img src="/images/{{ $partner['photo'] }}" id="image" name="image" height="100" width="100">
                       </div>
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" name="image"/> 
-                        <input type="hidden" name="image" value="{{ $list->photo }}" /> 
+                        <input type="hidden" name="image" value="{{ $partner['photo'] }}" /> 
                         <label class="custom-file-label" for="image">Choose file</label>
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="">Url</label>
-                    <input type="text" class="form-control" name="url" value="{{ $list->url }}" required="required">
+                    <input type="text" class="form-control" name="url" value="{{ $partner['url'] }}" required="required">
                   </div>
                   <br>
                   <div class="form-group">
                     <label for="">Description</label>
-                    <textarea id="description" class="form-control" value="description" id="description" rows="3" name="description" required="required">{{$list->description}}</textarea>
+                    <textarea id="description" class="form-control" value="description" id="description" rows="3" name="description" required="required">{{$partner['description']}}</textarea>
                   </div>
                   <br>
                   <div class="form-group">
@@ -66,7 +66,7 @@
                     <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
                   </div>
                   </form>
-                  @endforeach
+                  {{-- @endforeach --}}
                 </div>
               </div>
             </div>

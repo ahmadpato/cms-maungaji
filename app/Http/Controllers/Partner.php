@@ -17,14 +17,12 @@ use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\PartnerModel;
 
 class Partner extends Controller
 {
     public function index(){
-        $partner = DB::table('mau_partner')
-        ->select('*')
-        ->get();
-
+        $partner = PartnerModel::all();
         return view('partner/partner',['partner' => $partner]);
     }
 
@@ -38,16 +36,18 @@ class Partner extends Controller
         $image = $request->file('image');
         if($image != ''){
             $request->validate([
-                'image' => 'mimes:jpeg,jpg,png,gif|required|max:500000'
+                'image' => 'mimes:jpeg,jpg,png,gif|required|max:500000',
+                'url' => 'required',
+                'description' => 'required'
             ]);
             $image_name = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $image_name);
         } 
         
-        DB::table('mau_partner')->insert([
+        PartnerModel::create([
             'photo' => $image_name,
-            'url' => $request->url,
-            'description' => $request->description,
+            'url' => $request['url'],
+            'description' => $request['description'],
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -59,11 +59,7 @@ class Partner extends Controller
 
     public function edit($id)
     {
-        $partner = DB::table('mau_partner')
-            ->select('*')
-            ->where('id', $id)
-            ->get();
-
+        $partner = PartnerModel::find($id);
         return view('partner/edit_partner', ['partner' => $partner]);
     }
 
@@ -74,23 +70,24 @@ class Partner extends Controller
         
         if($image != '') {
             $request->validate([
-                'image' => 'mimes:jpeg,jpg,png,gif|required|max:500000'
+                'image' => 'mimes:jpeg,jpg,png,gif|required|max:500000',
+                'url' => 'required',
+                'description' => 'required'
             ]);
 
             $image_name = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $image_name);
 
         } 
-
-        DB::table('mau_partner')
-            ->where('id', $request->id)
-            ->update([
-                'photo' => $image_name,
-                'url' => $request->url,
-                'description' => $request->description,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
+        $id = $request['id'];
+        
+        $partner = PartnerModel::find($id);
+             
+        $partner['photo']       = $image_name;
+        $partner['url']         = $request['url'];
+        $partner['description'] = $request['description'];
+        $partner['updated_at']  = carbon::now();
+        $partner->save();
 
         Session::flash('flash_message','successfully update.');
 
@@ -99,7 +96,9 @@ class Partner extends Controller
 
     public function destroy($id){
     
-        DB::table('mau_partner')->where('id',$id)->delete();
+        $partner = PartnerModel::find($id);
+
+        $partner->delete();
 
         Session::flash('flash_message', 'successfully delete.');
 
