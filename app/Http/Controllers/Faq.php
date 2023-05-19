@@ -17,6 +17,7 @@ use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\FaqModel;
 
 class Faq extends Controller
 {
@@ -27,11 +28,8 @@ class Faq extends Controller
      */
     public function index()
     {
-        $faq = DB::table('cms_faq')
-        ->select('*')
-        ->orderBy('id','ASC')
-        ->get();
-
+        $faq = FaqModel::all();
+        
         return view('faq/faq',['faq' => $faq]);
     }
 
@@ -54,7 +52,12 @@ class Faq extends Controller
     public function store(Request $request)
     {
         if($request->_token != ''){
-            DB::table('cms_faq')->insert([
+            $this->validate($request,[
+                'question' => 'required',
+                'answer' => 'required'
+            ]);
+
+            FaqModel::create([
                 'question' => $request->question,
                 'answer' => $request->answer,
                 'created_at' => Carbon::now(),
@@ -86,11 +89,7 @@ class Faq extends Controller
      */
     public function edit($id)
     {
-        $faq = DB::table('cms_faq')
-            ->Select('*')
-            ->where('id', $id)
-            ->get();
-
+        $faq = FaqModel::find($id);
         return view('faq/edit_faq', ['faq' => $faq]);
     }
 
@@ -104,13 +103,19 @@ class Faq extends Controller
     public function update(Request $request)
     {
         if($request->_token != ''){
-            DB::table('cms_faq')
-                ->where('id', $request->id)
-                ->update([
-                    'question' => $request->question,
-                    'answer' => $request->answer,
-                    'updated_at' => carbon::now()
-                ]);
+            $this->validate($request,[
+                'question' => 'required',
+                'answer' => 'required'
+             ]);
+
+             $id = $request['id'];
+
+             $faq = FaqModel::find($id);
+             
+             $faq['question']   = $request['question'];
+             $faq['answer']     = $request['answer'];
+             $faq['updated_at'] = carbon::now();
+             $faq->save();
 
             Session::flash('flash_message','successfully update.');
 
@@ -126,7 +131,9 @@ class Faq extends Controller
      */
     public function destroy($id)
     {
-        DB::table('cms_faq')->where('id', $id)->delete();
+        $faq = FaqModel::find($id);
+
+        $faq->delete();
 
         Session::flash('flash_message', 'successfully delete.');
 
