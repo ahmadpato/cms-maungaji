@@ -4,7 +4,7 @@
       <div class="sidebar-brand-icon">
         {{-- <img src="../../img/logo/logo_manasik_hijau.png"> --}}
       </div>
-      <div class="sidebar-brand-text mx-3">Maumanasik</div>
+      <div class="sidebar-brand-text mx-3">Iqralabs</div>
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
@@ -50,7 +50,7 @@
           <a class="collapse-item active" href="/faq">Faq List</a>
         </div>
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item active" href="/partner">Maungaji Partner</a>
+          <a class="collapse-item active" href="/partner">Iqralabs Partner</a>
         </div>
       </div>
     </li>

@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="img/logo/logo2.png" rel="icon">
-  <title>Maungaji - CMS</title>
+  <title>Iqralabs - CMS</title>
   <link href="{{ URL::asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ URL::asset('css/ruang-admin.min.css') }}" rel="stylesheet">

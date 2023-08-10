@@ -28,7 +28,7 @@
   }  
 
   .card-counter.success{
-    background-color: #1baa69;
+    background-color: #e86548;
     color: #FFF;
   }  
 

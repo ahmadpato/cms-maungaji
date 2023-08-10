@@ -88,7 +88,7 @@
                       aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                          <div class="modal-header" style="background: #3597D4;">
+                          <div class="modal-header" style="background: #e86548;">
                             <h5 class="modal-title" id="exampleModalLabelLogout">
                             <?php if($list->photo): ?>
                               <div class="text-left">

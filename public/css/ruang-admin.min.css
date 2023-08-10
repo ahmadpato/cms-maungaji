@@ -148,15 +148,15 @@
     background-size: cover;
   }
   .bg-gradient-success {
-    background-color: #66bb6a;
+    background-color: #e77a62;
     background-image: -webkit-gradient(
       linear,
       left top,
       left bottom,
-      color-stop(10%, #66bb6a),
+      color-stop(10%, #e77a62),
       to(#13855c)
     );
-    background-image: linear-gradient(180deg, #66bb6a 10%, #13855c 100%);
+    background-image: linear-gradient(180deg, #e77a62 10%, #13855c 100%);
     background-size: cover;
   }
   .bg-gradient-info {
@@ -316,10 +316,10 @@
     border-bottom: 0.25rem solid #757575 !important;
   }
   .border-left-success {
-    border-left: 0.25rem solid #66bb6a !important;
+    border-left: 0.25rem solid #e77a62 !important;
   }
   .border-bottom-success {
-    border-bottom: 0.25rem solid #66bb6a !important;
+    border-bottom: 0.25rem solid #e77a62 !important;
   }
   .border-left-info {
     border-left: 0.25rem solid #4dd0e1 !important;
@@ -539,7 +539,7 @@
     color: #858796;
   }
   .bg-navbar {
-    background-color: #66bb6a;
+    background-color: #e77a62;
   }
   .sidebar {
     min-height: 100vh;
@@ -959,7 +959,7 @@
   }
   .sidebar-light .sidebar-brand {
     color: #fafafa;
-    background-color: #1baa69;
+    background-color: #e86548;
   }
   .sidebar-light hr.sidebar-divider {
     border-top: 1px solid #eaecf4;
