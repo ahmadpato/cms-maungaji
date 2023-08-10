@@ -152,6 +152,25 @@ Route::post('/partner/update','Partner@update',function(){
 Route::get('/partner/destroy/{id}','Partner@destroy',function(){
 })->middleware('auth');
 
+//mentors
+Route::get('/mentor','Mentor@index',function(){
+})->middleware('auth');
+
+Route::get('/mentor/add', 'Mentor@add',function(){
+})->middleware('auth');
+
+Route::post('/mentor/store', 'Mentor@store',function(){
+})->middleware('auth');
+
+Route::get('/mentor/edit/{id}','Mentor@edit',function(){
+})->middleware('auth');
+
+Route::post('/mentor/update','Mentor@update',function(){
+})->middleware('auth');
+
+Route::get('/mentor/destroy/{id}','Mentor@destroy',function(){
+})->middleware('auth');
+
 //video
 Route::get('/video','Video@index',function(){
 })->middleware('auth');

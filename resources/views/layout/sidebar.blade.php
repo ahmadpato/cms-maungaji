@@ -35,6 +35,9 @@
       </a>
       <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item active" href="/mentor">Mentor Profile</a>
+        </div>
+        <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item active" href="/testimoni">User Testimoni</a>
         </div>
         <div class="bg-white py-2 collapse-inner rounded">
