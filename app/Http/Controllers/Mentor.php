@@ -17,16 +17,14 @@ use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\MentorModel;
 
 
 class Mentor extends Controller
 {
     public function index(){
     	
-    	$mentors = DB::table('mentors')
-        ->select('*')
-        ->orderBy('fullname', 'ASC')
-        ->get();
+    	$mentors = MentorModel::all();
 
     	return view('mentor/mentor',['user' => $mentors]);
     }
@@ -60,23 +58,13 @@ class Mentor extends Controller
             ]);
         }
         
-        // $input['no_certified'] = Input::get('no_certified');
-
-        // $rules = array('no_certified' => 'unique:mentors,no_certified');
-        // $validator = Validator::make($input, $rules);
-
-        // if ($validator->fails()) {
-        //     Session::flash('failed',' failed add data, number identity already use');
-        //     return redirect('/mentor'.$request->id.'');
-        // } else {
-        DB::table('mentors')->insert([
+        MentorModel::create([
             'no_certified' => $request->no_certified,
             'fullname' => $request->fullname,
             'experience' => $request->experience,
             'photo' => $image_name,
             'created_at' => Carbon::now()
         ]);
-        // }
 
         Session::flash('flash_message','successfully saved.');
 
@@ -85,13 +73,7 @@ class Mentor extends Controller
 
     public function edit($id)
     {
-        //mengambil data user berdasarkan id yang dipilih
-        $mentors = DB::table('mentors')
-            ->select('*')
-            ->where('id',$id)
-            ->get();
-        
-        // passing data edit user yang didapat ke view edit.blade.php
+        $mentors = MentorModel::find($id);
         return view('/mentor/edit',['mentors' => $mentors]);
     }
 
@@ -111,15 +93,16 @@ class Mentor extends Controller
 
         } 
         
-        DB::table('mentors')
-            ->where('mentors.id',$request->id)
-            ->update([
-                'no_certified' => $request->no_certified,
-                'fullname' => $request->fullname,
-                'experience' => $request->experience,
-                'photo' => $image_name,
-                'updated_at' => Carbon::now()
-        ]);
+        $id = $request['id'];
+
+        $mentor = MentorModel::find($id);
+             
+        $mentor['no_certified']   = $request['no_certified'];
+        $mentor['fullname']       = $request['fullname'];
+        $mentor['experience']     = $request['experience'];
+        $mentor['photo']          = $image_name;
+        $mentor['updated_at']     = carbon::now();
+        $mentor->save();
 
         Session::flash('flash_message','successfully saved.');
 
@@ -128,7 +111,9 @@ class Mentor extends Controller
 
     public function destroy($id)
     {
-        DB::table('mentors')->where('id',$id)->delete();
+        $mentor = MentorModel::find($id);
+
+        $mentor->delete();
 
         Session::flash('flash_message','successfully delete.');
             

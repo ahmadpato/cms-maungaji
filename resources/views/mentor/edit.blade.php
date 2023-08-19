@@ -33,23 +33,22 @@
                   </div>
                 @endif
                 <div class="card-body">
-                @foreach($mentors as $list)
                 <form action="/mentor/update" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
-                    <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
+                    <input type="hidden" name="id" value="{{ $mentors['id'] }}"> <br/>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Certified Number</label>
-                      <input type="text" class="form-control" name="no_certified" value="{{ $list->no_certified }}" required="required">
+                      <input type="text" class="form-control" name="no_certified" value="{{ $mentors['no_certified'] }}" required="required">
                     </div>
                     <div class="form-group">
                       <label for="">Name</label>
-                      <input type="text" class="form-control" name="fullname" value="{{ $list->fullname }}" required="required">
+                      <input type="text" class="form-control" name="fullname" value="{{ $mentors['fullname'] }}" required="required">
                     </div>
                     <div class="form-group">
                       <label for="image">Image</label>
                       <div class="input-group">
                         <div class="col-md-12">
-                            <img src="/images/{{ $list->photo }}" id="image" name="image" height="100" width="100">
+                            <img src="/images/{{ $mentors['photo']}}" id="image" name="image" height="100" width="100">
                         </div>
                         <br>
                         <br>
@@ -58,14 +57,14 @@
                         <br>
                         <div class="custom-file">
                           <input type="file" class="custom-file-input" name="image"/> 
-                          <input type="hidden" name="image" value="{{ $list->photo }}" /> 
+                          <input type="hidden" name="image" value="{{ $mentors['photo']}}" /> 
                           <label class="custom-file-label" for="image">Choose file</label>
                         </div>
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="">Experience</label>
-                      <textarea id="description" class="form-control" value="experience" id="description" rows="3" name="experience" required="required">{{$list->experience}}</textarea>
+                      <textarea id="description" class="form-control" value="experience" id="description" rows="3" name="experience" required="required">{{$mentors['experience']}}</textarea>
                     </div>
                     <br>
                     <div class="form-group">
@@ -73,7 +72,6 @@
                         <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
                     </div>
                   </form>
-                  @endforeach
                 </div>
               </div>
             </div>
