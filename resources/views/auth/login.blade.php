@@ -31,7 +31,7 @@
                 <div class="login-form">
                   <div class="text-center">
                     <div class="register-logo">
-                      <img src="../../dist/img/logo_iqralabs.png"
+                      <img src="../../dist/img/logo_Mau Manasik.png"
                         style="width: 50%">
                     </div>
                   </div>

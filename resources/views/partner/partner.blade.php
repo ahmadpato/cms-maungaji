@@ -17,7 +17,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item">Home</a></li>
               <li class="breadcrumb-item">Partner</li>
-              <li class="breadcrumb-item active" aria-current="page">Iqralabs Partner</li>
+              <li class="breadcrumb-item active" aria-current="page">Mau Manasik Partner</li>
             </ol>
           </div>
 
