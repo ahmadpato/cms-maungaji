@@ -60,7 +60,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block" style="background-color: #e86548;">{{ __('Login') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block" style="background-color: #1baa69;">{{ __('Login') }}</button>
                     </div>
                     <hr>
                     <!-- <a href="#" class="btn btn-google btn-block">

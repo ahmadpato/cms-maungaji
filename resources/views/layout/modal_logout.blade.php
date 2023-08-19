@@ -13,7 +13,7 @@ aria-hidden="true">
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-            <a href="/logout" class="btn btn-primary" style="background-color: #e86548;">Logout</a>
+            <a href="/logout" class="btn btn-primary" style="background-color: #1baa69;">Logout</a>
         </div>
         </div>
     </div>

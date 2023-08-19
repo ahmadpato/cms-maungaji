@@ -129,7 +129,7 @@
           </div> -->
           <!-- /.col -->
           <div class="social-auth-links text-center">
-            <button type="submit" class="btn btn-primary btn-block" style="background-color: #e86548;">SIGN UP</button>
+            <button type="submit" class="btn btn-primary btn-block" style="background-color: #1baa69;">SIGN UP</button>
           </div>
           <!-- /.col -->
       </form>
